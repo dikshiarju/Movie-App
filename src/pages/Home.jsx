@@ -7,11 +7,12 @@ const Home = () => {
   const [movies, setMovies] =useState([]);
   const [page, setPage]= useState(1);
   const [search, setSearch] = useState("");
+  const apiKey = import.meta.env.VITE_MOVIE_API_KEY;
 
   useEffect ( () =>{
-    let url= `https://api.themoviedb.org/3/movie/popular?page=${page}&api_key=2eb8ed6be2658a7c013fc5ee158a750c`;
+    let url= `https://api.themoviedb.org/3/movie/popular?page=${page}&api_key=${apiKey}`;
       if(search) {
-          url =`https://api.themoviedb.org/3/search/movie?query=${search}&api_key=2eb8ed6be2658a7c013fc5ee158a750c`
+          url =`https://api.themoviedb.org/3/search/movie?query=${search}&api_key=${apiKey}`
       }
 
     fetch(url)
